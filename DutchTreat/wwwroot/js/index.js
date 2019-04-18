@@ -30,6 +30,7 @@ $(document).ready(function () {
         //$popupForm.fadeToggle(1200);
        // $popupForm.slideToggle(1000);
     })
+ //Validation for popup form
     const passwordRegex = /^[0-9a-zA-z]{10}$/
     var password = document.querySelector(".pwd");
     var errorMessage = document.querySelector("#error");
@@ -60,6 +61,7 @@ $(document).ready(function () {
             userNameErrorMessage.style.display = "block";
         }
     })
+    //Validation logic ends here
 
     //});
 });
