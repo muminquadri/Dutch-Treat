@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DutchTreat.Views
+namespace DutchTreat.Pages
 {
     public class ErrorModel : PageModel
     {

@@ -1,4 +1,4 @@
-﻿body {
+﻿/*body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 input[type=submit]{
@@ -68,10 +68,11 @@ menu li::after{
 }
 menu li:last-of-type::after{
     content:"";
-}
-#error, #errorMessage {
+}*/
+#errorMessage, #error {
     display: none;
     color: red;
 }
+
 
 
