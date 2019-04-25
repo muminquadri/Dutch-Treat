@@ -19,6 +19,15 @@ namespace DutchTreat
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(SetupConfiguration)
                 .UseStartup<Startup>();
+
+        private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
+        {
+            //Removes the default configuration options
+            builder.Sources.Clear();
+            builder.AddJsonFile("appsettings.json", false, true)
+                .AddEnvironmentVariables();
+        }
     }
 }
