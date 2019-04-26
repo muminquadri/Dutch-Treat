@@ -10,9 +10,9 @@ namespace DutchTreat.Data.Entities
 {
   public class Order
   {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
     public DateTime OrderDate { get; set; }
     public string OrderNumber { get; set; }
     public ICollection<OrderItem> Items { get; set; }
