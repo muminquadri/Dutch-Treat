@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DutchTreat.Data;
+using DutchTreat.Data.Entities;
 using DutchTreat.Services;
+using DutchTreat.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -55,6 +57,17 @@ namespace DutchTreat
             app.UseStaticFiles();
             env.ConfigureNLog("nlog.config");
             loggerFactory.AddNLog();
+          //  we need projection.projection transforms a source to a destination beyond
+             //flattening the object model, so we must specify this through custom member mapping.
+             //to do that we call into ForMember and give (destination property name, how to calculate the value)
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<OrderViewModel, Order>()
+                .ForMember(o=>o.Id, src=>src.MapFrom(o=>o.OrderId))
+                .ReverseMap();
+                cfg.CreateMap<OrderItem, OrderItemViewModel>()
+                .ReverseMap();
+            });
             app.UseMvc(cfg =>
             {
                 cfg.MapRoute("Default",

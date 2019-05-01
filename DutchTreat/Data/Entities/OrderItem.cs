@@ -5,9 +5,9 @@ namespace DutchTreat.Data.Entities
 {
   public class OrderItem
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
     public Product Product { get; set; }
     public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }

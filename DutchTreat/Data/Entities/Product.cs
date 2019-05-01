@@ -10,9 +10,8 @@ namespace DutchTreat.Data.Entities
 {
   public class Product
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+
+        public int Id { get; set; }
     public string Category { get; set; }
     public string Size { get; set; }
     public decimal Price { get; set; }
