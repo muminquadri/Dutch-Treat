@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using NLog.Extensions.Logging;
 using NLog.Web;
 
@@ -35,7 +36,8 @@ namespace DutchTreat
             services.AddTransient<IMailService, NullMailService>();
             services.AddTransient<DutchSeeder>();
             services.AddScoped<IDutchRepository, DutchRepository>();
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(o=>o.SerializerSettings.ReferenceLoopHandling=ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
